@@ -34,7 +34,8 @@ EXEC_APP_ROOT = $(EXEC_ROOT) $(SERVICE_PHP)
 COMPOSER = $(EXEC_APP) composer
 PHP = $(EXEC_APP) php
 
-PHPUNIT = $(EXEC_APP) ./vendor/bin/simple-phpunit
+PHP_CS_FIXER = $(EXEC_APP) ./bin/php-cs-fixer
+PHPUNIT = $(EXEC_APP) ./bin/phpunit
 
 SYMFONY = $(PHP) bin/console
 
