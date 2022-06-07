@@ -6,4 +6,8 @@ phpcs: ## PHP-CS-Fixer: Tools homepage
 
 .PHONY: phpcs.show
 phpcs.show: ## PHP-CS-Fixer: Run and show console
-	$(PHP_CS_FIXER) fix --dry-run --config ./tools/php-cs-fixer/.php-cs-fixer.dist.php
+	$(PHP_CS_FIXER) fix --dry-run
+	
+.PHONY: phpcs.fix
+phpcs.fix: ## PHP-CS-Fixer: Run and fix
+	$(PHP_CS_FIXER) fix

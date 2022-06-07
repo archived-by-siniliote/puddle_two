@@ -95,11 +95,44 @@
     "fakerphp/faker": {
         "version": "v1.19.0"
     },
+    "firebase/php-jwt": {
+        "version": "v6.2.0"
+    },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.12"
     },
     "gedmo/doctrine-extensions": {
         "version": "v3.7.0"
+    },
+    "google/auth": {
+        "version": "v1.21.0"
+    },
+    "google/cloud-core": {
+        "version": "v1.46.0"
+    },
+    "google/cloud-firestore": {
+        "version": "v0.1.0"
+    },
+    "google/gax": {
+        "version": "0.25.0"
+    },
+    "google/proto-client": {
+        "version": "0.25.0"
+    },
+    "google/protobuf": {
+        "version": "v3.21.1"
+    },
+    "grpc/grpc": {
+        "version": "1.42.0"
+    },
+    "guzzlehttp/guzzle": {
+        "version": "7.4.3"
+    },
+    "guzzlehttp/promises": {
+        "version": "1.5.1"
+    },
+    "guzzlehttp/psr7": {
+        "version": "2.2.1"
     },
     "laminas/laminas-code": {
         "version": "4.5.1"
@@ -107,11 +140,17 @@
     "masterminds/html5": {
         "version": "2.7.5"
     },
+    "monolog/monolog": {
+        "version": "2.6.0"
+    },
     "myclabs/deep-copy": {
         "version": "1.11.0"
     },
     "nikic/php-parser": {
         "version": "v4.14.0"
+    },
+    "paragonie/random_compat": {
+        "version": "v9.99.100"
     },
     "phar-io/manifest": {
         "version": "2.0.3"
@@ -169,8 +208,26 @@
     "psr/event-dispatcher": {
         "version": "1.0.0"
     },
+    "psr/http-client": {
+        "version": "1.0.1"
+    },
+    "psr/http-factory": {
+        "version": "1.0.1"
+    },
+    "psr/http-message": {
+        "version": "1.0.1"
+    },
     "psr/log": {
         "version": "3.0.0"
+    },
+    "ralouphie/getallheaders": {
+        "version": "3.0.3"
+    },
+    "ramsey/uuid": {
+        "version": "3.9.6"
+    },
+    "rize/uri-template": {
+        "version": "0.3.4"
     },
     "sebastian/cli-parser": {
         "version": "1.0.1"
