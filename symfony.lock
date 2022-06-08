@@ -232,6 +232,9 @@
             "config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "stella-maris/clock": {
+        "version": "0.1.4"
+    },
     "stof/doctrine-extensions-bundle": {
         "version": "1.7",
         "recipe": {
@@ -383,6 +386,9 @@
     "symfony/polyfill-mbstring": {
         "version": "v1.25.0"
     },
+    "symfony/polyfill-uuid": {
+        "version": "v1.26.0"
+    },
     "symfony/property-access": {
         "version": "v6.1.0"
     },
@@ -436,6 +442,9 @@
             "templates/base.html.twig"
         ]
     },
+    "symfony/uid": {
+        "version": "v6.1.0"
+    },
     "symfony/validator": {
         "version": "6.1",
         "recipe": {
@@ -465,6 +474,18 @@
         "files": [
             "config/packages/web_profiler.yaml",
             "config/routes/web_profiler.yaml"
+        ]
+    },
+    "symfony/workflow": {
+        "version": "6.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.3",
+            "ref": "3b2f8ca32a07fcb00f899649053943fa3d8bbfb6"
+        },
+        "files": [
+            "config/packages/workflow.yaml"
         ]
     },
     "symfony/yaml": {

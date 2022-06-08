@@ -1,5 +1,22 @@
 framework:
     messenger:
+        # The bus that is going to be injected when injecting MessageBusInterface
+        default_bus: command.bus
+        buses:
+            command.bus:
+                middleware:
+                    - validation
+                    # - doctrine_transaction
+            query.bus:
+                middleware:
+                    - validation
+            # event.bus:
+            #     # the 'allow_no_handlers' middleware allows to have no handler
+            #     # configured for this bus without throwing an exception
+            #     default_middleware: allow_no_handlers
+            #     middleware:
+            #         - validation
+
         # Uncomment this (and the failed transport below) to send failed messages to this transport for later handling.
         # failure_transport: failed
 
@@ -13,6 +30,7 @@ framework:
             # Route your messages to the transports
             # 'App\Message\YourMessage': async
 
+       
 # when@test:
 #    framework:
 #        messenger:
