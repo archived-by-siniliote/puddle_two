@@ -98,3 +98,7 @@ cancelled:
 .PHONY: sh
 sh: ## Project: app sh access.
 	$(EXEC_APP_ROOT) sh
+
+.PHONY: sh.force
+sh.force: ## Project: app sh access.
+	$(RUN) --rm $(SERVICE_PHP) sh 
