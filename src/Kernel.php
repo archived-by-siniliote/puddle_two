@@ -1,6 +1,8 @@
 <?php
 
-namespace App;
+declare(strict_types=1);
+
+namespace SymfonyCraft\Puddle;
 
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;

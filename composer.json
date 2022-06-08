@@ -39,12 +39,12 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "SymfonyCraft\\Puddle\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "SymfonyCraft\\Puddle\\Tests\\": "tests/"
         }
     },
     "replace": {

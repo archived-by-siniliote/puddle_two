@@ -1,0 +1,8 @@
+{
+    "require": {
+        "friends-of-behat/symfony-extension": "^2.0"
+    },
+    "config": {
+        "bin-dir": "../../bin"
+    }
+}

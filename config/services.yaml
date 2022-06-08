@@ -11,14 +11,48 @@ services:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
+    SymfonyCraft\Puddle\Tests\:
+        resource: '../tests/'
+
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
-    App\:
-        resource: '../src/'
+    SymfonyCraft\Puddle\:
+        resource: '../src'
         exclude:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
+    
+    SymfonyCraft\Puddle\Infrastructure\Controller\:
+        resource: '../src/Infrastructure/Controller/'
+        tags: [ 'controller.service_arguments' ]
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    _instanceof:
+        SymfonyCraft\Puddle\Application\Query\QueryHandler:
+            tags:
+                - { name: messenger.message_handler, bus: query.bus }
+        SymfonyCraft\Puddle\Application\Command\CommandHandler:
+            tags:
+                - { name: messenger.message_handler, bus: command.bus }
+        SymfonyCraft\Puddle\Application\Event\EventHandler:
+            tags:
+                - { name: messenger.message_handler, bus: event.bus }
+
+    SymfonyCraft\Puddle\Domain\JobCollection:
+        '@SymfonyCraft\Puddle\Infrastructure\Persistence\InMemory\InMemoryJobCollection'
+    SymfonyCraft\Puddle\Domain\ApplicantCollection:
+        '@SymfonyCraft\Puddle\Tests\UseCase\Fake\FakeApplicantCollection'
+    SymfonyCraft\Puddle\Domain\CompanyCollection:
+        '@SymfonyCraft\Puddle\Tests\UseCase\Fake\FakeCompanyCollection'
+
+when@test:
+    services:
+        SymfonyCraft\Puddle\Domain\JobCollection:
+            '@SymfonyCraft\Puddle\Tests\UseCase\Fake\FakeJobCollection'
+        SymfonyCraft\Puddle\Domain\ApplicantCollection:
+            '@SymfonyCraft\Puddle\Tests\UseCase\Fake\FakeApplicantCollection'
+        SymfonyCraft\Puddle\Domain\CompanyCollection:
+            '@SymfonyCraft\Puddle\Tests\UseCase\Fake\FakeCompanyCollection'
