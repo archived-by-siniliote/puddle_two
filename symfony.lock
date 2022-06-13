@@ -244,6 +244,9 @@
             "config/packages/stof_doctrine_extensions.yaml"
         ]
     },
+    "symfony/asset": {
+        "version": "v6.1.0"
+    },
     "symfony/browser-kit": {
         "version": "v6.1.0"
     },
@@ -359,6 +362,9 @@
             "config/packages/messenger.yaml"
         ]
     },
+    "symfony/password-hasher": {
+        "version": "v6.1.0"
+    },
     "symfony/phpunit-bridge": {
         "version": "6.1",
         "recipe": {
@@ -407,6 +413,27 @@
     },
     "symfony/runtime": {
         "version": "v6.1.0"
+    },
+    "symfony/security-bundle": {
+        "version": "6.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "6.0",
+            "ref": "8a5b112826f7d3d5b07027f93786ae11a1c7de48"
+        },
+        "files": [
+            "config/packages/security.yaml"
+        ]
+    },
+    "symfony/security-core": {
+        "version": "v6.1.0"
+    },
+    "symfony/security-csrf": {
+        "version": "v6.1.0"
+    },
+    "symfony/security-http": {
+        "version": "v6.1.1"
     },
     "symfony/service-contracts": {
         "version": "v3.1.0"
@@ -465,6 +492,25 @@
         "files": [
             "config/packages/web_profiler.yaml",
             "config/routes/web_profiler.yaml"
+        ]
+    },
+    "symfony/webpack-encore-bundle": {
+        "version": "1.14",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.10",
+            "ref": "642c9239e1c76e037f5b65446d09eba836ea147f"
+        },
+        "files": [
+            "assets/app.js",
+            "assets/bootstrap.js",
+            "assets/controllers.json",
+            "assets/controllers/hello_controller.js",
+            "assets/styles/app.css",
+            "config/packages/webpack_encore.yaml",
+            "package.json",
+            "webpack.config.js"
         ]
     },
     "symfony/yaml": {

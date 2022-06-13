@@ -1,3 +1,5 @@
+# IntelliJ
+/.idea/
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -21,4 +23,11 @@
 
 ###> friendsofphp/php-cs-fixer ###
 .php-cs-fixer.dist.php
-###< friendsofphp/php-cs-fixer ### 
+###< friendsofphp/php-cs-fixer ###
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###

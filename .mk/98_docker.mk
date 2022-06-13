@@ -147,14 +147,6 @@ docker.certs: ## Docker: Add Certs
 	docker compose cp $(SERVICE_CADDY):/data/caddy/pki/authorities/local/root.key $(PROJECT_ROOT)/docker/caddy/cert/root.key
 	sudo cp ./docker/caddy/cert/root.crt /usr/local/share/ca-certificates/root.crt && sudo update-ca-certificates
 
-# .PHONY: docker.zsh
-# docker.zsh: ## Docker: zsh access.
-# 	$(EXEC_APP_ROOT) zsh
-
-.PHONY: docker.bash
-docker.bash: ## Docker: bash access.
-	$(EXEC_APP_ROOT) bash
-
 .PHONY: docker.owner
 docker.owner: ## Docker: set yourself as owner of the project files that were created by the docker container.
 	docker compose run --rm php chown -R $(USER_ID):$(GROUP_ID) .
