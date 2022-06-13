@@ -4,8 +4,26 @@
 
 
 # https://docs.docker.com/engine/reference/builder/#understand-how-arg-and-from-interact
-ARG PHP_VERSION=8.1
+ARG PHP_VERSION=8
 ARG CADDY_VERSION=2
+ARG NODE_VERSION=18
+
+### "node" stage
+FROM node:${NODE_VERSION}-alpine AS node
+
+COPY docker/node/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
+RUN chmod +x /usr/local/bin/docker-entrypoint
+
+WORKDIR /srv/app
+EXPOSE 3000
+ENTRYPOINT ["docker-entrypoint"]
+
+# https://github.com/webpack/webpack/issues/14532#issuecomment-947012063
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
+CMD ["yarn", "dev"]
+
+COPY . .
 
 # "php" stage
 FROM php:${PHP_VERSION}-fpm-alpine AS symfony_php
