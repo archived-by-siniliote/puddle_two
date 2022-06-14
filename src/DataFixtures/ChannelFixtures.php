@@ -4,16 +4,15 @@ declare(strict_types=1);
 
 namespace App\DataFixtures;
 
-use App\Factory\UserFactory;
+use App\Factory\ChannelFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
-class UserFixtures extends Fixture
+class ChannelFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        UserFactory::createOne(['email' => 'admin@gmail.com']);
-        UserFactory::createOne(['email' => 'user@gmail.com']);
+        ChannelFactory::createMany(5);
 
         $manager->flush();
     }
