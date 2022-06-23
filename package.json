@@ -10,7 +10,7 @@
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
-        "dev-server": "encore dev-server --host 0.0.0.0 --port 3000 --public http://localhost:3000",
+        "dev-server": "encore dev-server --host 0.0.0.0 --port 3000 --public https://localhost:3000",
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"

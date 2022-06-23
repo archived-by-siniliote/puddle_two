@@ -73,6 +73,9 @@ Encore
 
 
     .configureDevServerOptions(options => {
+      options.server = {
+        type: 'https',
+      }
       options.allowedHosts = 'all'; // Recommended by https://symfony.com/doc/current/frontend/encore/dev-server.html#cors-issues
     })
 ;

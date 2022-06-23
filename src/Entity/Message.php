@@ -23,7 +23,7 @@ class Message
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'messages')]
     #[Groups(['message'])]
-    private ?UserInterface $author;
+    private ?User $author;
 
     #[ORM\ManyToOne(targetEntity: Channel::class, inversedBy: 'messages')]
     private ?Channel $channel;
@@ -40,7 +40,7 @@ class Message
         return $this;
     }
 
-    public function getAuthor(): ?UserInterface
+    public function getAuthor(): ?User
     {
         return $this->author;
     }
