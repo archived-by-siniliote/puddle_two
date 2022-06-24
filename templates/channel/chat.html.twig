@@ -12,7 +12,6 @@
             </div>
         {% endif %}
         <h1>Channel {{ channel.name }}</h1>
-        <div>
             <div class="container bg-light h-75 overflow-auto">
                 {% for message in messages %}
                     {% if app.user == message.author %}
@@ -48,5 +47,4 @@
                 </form>
             </div>
         </div>
-    </div>
 {% endblock %}
