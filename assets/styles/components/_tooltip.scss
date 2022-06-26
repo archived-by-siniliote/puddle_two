@@ -1,0 +1,115 @@
+/* Native-tooltip container */
+.native-tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+/* native-tooltip text */
+.native-tooltip .native-tooltiptext {
+    font-size: 0.6em;
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the native-tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+
+    /* Fade in native-tooltip */
+    transition: opacity 0.3s;
+}
+
+/* native-tooltip arrow */
+.native-tooltip .native-tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Show the native-tooltip text when you mouse over the native-tooltip container */
+.native-tooltip:hover .native-tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+.native-tooltip {
+
+    .native-tooltip-right {
+        top: -5px;
+        left: 125%;
+    }
+
+    .native-tooltip-right::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        margin-top: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent #555 transparent transparent;
+    }
+
+    .native-tooltip-bottom {
+        top: 135%;
+        left: 50%;
+        margin-left: -60px;
+    }
+
+    .native-tooltip-bottom::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent #555 transparent;
+    }
+
+    .native-tooltip-top {
+        bottom: 125%;
+        left: 50%;
+        margin-left: -60px;
+    }
+
+    .native-tooltip-top::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+
+    .native-tooltip-left {
+        top: -5px;
+        bottom: auto;
+        right: 128%;
+    }
+
+    .native-tooltip-left::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        margin-top: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent transparent #555;
+    }
+}

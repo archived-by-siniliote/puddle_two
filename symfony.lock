@@ -483,6 +483,19 @@
     "symfony/string": {
         "version": "v6.1.0"
     },
+    "symfony/translation": {
+        "version": "6.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "5.3",
+            "ref": "da64f5a2b6d96f5dc24914517c0350a5f91dee43"
+        },
+        "files": [
+            "config/packages/translation.yaml",
+            "translations/.gitignore"
+        ]
+    },
     "symfony/translation-contracts": {
         "version": "v3.1.0"
     },
@@ -578,6 +591,15 @@
     },
     "theseer/tokenizer": {
         "version": "1.2.1"
+    },
+    "twig/extra-bundle": {
+        "version": "v3.4.0"
+    },
+    "twig/string-extra": {
+        "version": "v3.4.0"
+    },
+    "twig/timediff-extra": {
+        "version": "v3.4.0"
     },
     "twig/twig": {
         "version": "v3.4.1"

@@ -13,6 +13,8 @@ class SandboxController extends AbstractController
     #[Route('/sandbox', name: 'app_sandbox')]
     public function index(): Response
     {
+        $date = new \DateTime('2 days ago');
+
         return $this->render('sandbox/index.html.twig');
     }
 }
