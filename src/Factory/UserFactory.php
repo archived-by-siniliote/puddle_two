@@ -41,6 +41,7 @@ final class UserFactory extends ModelFactory
     {
         return [
             'email' => self::faker()->unique()->safeEmail(),
+            'username' => self::faker()->userName(),
             'password' => '$2y$13$Kdbe.vs22//ct.oal27EiuUQn5wq9LXZ3XpI3oZm9FnRb9WEblNya',
             'roles' => [],
         ];

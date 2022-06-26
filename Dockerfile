@@ -4,7 +4,7 @@
 
 
 # https://docs.docker.com/engine/reference/builder/#understand-how-arg-and-from-interact
-ARG PHP_VERSION=8
+ARG PHP_VERSION=8.1
 ARG CADDY_VERSION=2
 ARG NODE_VERSION=18
 
@@ -41,6 +41,7 @@ ARG APCU_VERSION=5.1.21
 RUN set -eux; \
 	apk add --no-cache --virtual .build-deps \
 		$PHPIZE_DEPS \
+		icu-data-full \
 		icu-dev \
 		libzip-dev \
 		zlib-dev \
@@ -111,26 +112,6 @@ RUN composer create-project "${SKELETON} ${SYMFONY_VERSION}" . --stability=$STAB
 	composer clear-cache
 
 ###> recipes ###
-###> symfony/panther ###
-# Chromium and ChromeDriver
-ENV PANTHER_NO_SANDBOX 1
-# Not mandatory, but recommended
-ENV PANTHER_CHROME_ARGUMENTS='--disable-dev-shm-usage'
-RUN apk add --no-cache chromium chromium-chromedriver
-
-# Firefox and geckodriver
-#ARG GECKODRIVER_VERSION=0.29.0
-#RUN apk add --no-cache firefox
-#RUN wget -q https://github.com/mozilla/geckodriver/releases/download/v$GECKODRIVER_VERSION/geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz; \
-#	tar -zxf geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz -C /usr/bin; \
-#	rm geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz
-###< symfony/panther ###
-###> doctrine/doctrine-bundle ###
-RUN apk add --no-cache --virtual .pgsql-deps postgresql-dev; \
-	docker-php-ext-install -j$(nproc) pdo_pgsql; \
-	apk add --no-cache --virtual .pgsql-rundeps so:libpq.so.5; \
-	apk del .pgsql-deps
-###< doctrine/doctrine-bundle ###
 ###< recipes ###
 
 COPY . .
@@ -166,7 +147,7 @@ COPY docker/caddy/Caddyfile /etc/caddy/Caddyfile
 
 FROM symfony_php AS symfony_php_debug
 
-ARG XDEBUG_VERSION=3.1.3
+ARG XDEBUG_VERSION=3.1.5
 RUN set -eux; \
 	apk add --no-cache --virtual .build-deps $PHPIZE_DEPS; \
 	pecl install xdebug-$XDEBUG_VERSION; \
