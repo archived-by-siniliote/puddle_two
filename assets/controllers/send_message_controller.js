@@ -11,9 +11,9 @@ export default class extends Controller {
       this.es = new EventSource(this.urlMercureValue);
       this.es.onmessage = ({data}) => {
         const message = JSON.parse(data);
-        this.templateTarget.content.querySelector("b").textContent = message.author.username
-        this.templateTarget.content.querySelector("p").textContent = message.content
-        this.element.insertAdjacentHTML("beforeend", this.templateTarget.innerHTML);
+        this.templateTarget.content.querySelector(".author").textContent = message.author.username
+        this.templateTarget.content.querySelector(".message").textContent = message.content
+        this.templateTarget.insertAdjacentHTML("beforebegin", this.templateTarget.innerHTML);
       }
     }
 

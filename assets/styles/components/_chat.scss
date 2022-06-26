@@ -2,10 +2,6 @@
 // Chat
 //
 
-body{
-    background-color: #f4f7f6;
-    margin-top:20px;
-}
 .card {
     background: #fff;
     transition: .5s;
@@ -137,14 +133,13 @@ body{
 .chat .chat-history .message:after {
     bottom: 100%;
     left: 7%;
-    border: solid transparent;
     content: " ";
     height: 0;
     width: 0;
     position: absolute;
     pointer-events: none;
+    border: 10px solid transparent;
     border-bottom-color: #fff;
-    border-width: 10px;
     margin-left: -10px
 }
 
@@ -155,14 +150,13 @@ body{
 .chat .chat-history .my-message:after {
     bottom: 100%;
     left: 30px;
-    border: solid transparent;
     content: " ";
     height: 0;
     width: 0;
     position: absolute;
     pointer-events: none;
+    border: 10px solid transparent;
     border-bottom-color: #efefef;
-    border-width: 10px;
     margin-left: -10px
 }
 
@@ -189,10 +183,12 @@ body{
 }
 
 .online {
+    font-variation-settings: 'FILL' 1;
     color: #86c541
 }
 
 .offline {
+    font-variation-settings: 'FILL' 0;
     color: #e47297
 }
 
