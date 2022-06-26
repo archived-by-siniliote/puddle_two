@@ -9,13 +9,7 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/srv/app/src/Controller/SandboxController.php'|file_link(0) }}">src/Controller/SandboxController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/srv/app/templates/sandbox/index.html.twig'|file_link(0) }}">templates/sandbox/index.html.twig</a></code></li>
-    </ul>
+    {{ component('random_number', { min: 5, max: 500, class: 'widget', style: 'color: black;' }) }}
     <div data-controller="hello"></div>
 </div>
 {% endblock %}

@@ -13,8 +13,6 @@ class SandboxController extends AbstractController
     #[Route('/sandbox', name: 'app_sandbox')]
     public function index(): Response
     {
-        return $this->render('sandbox/index.html.twig', [
-            'controller_name' => 'SandboxController',
-        ]);
+        return $this->render('sandbox/index.html.twig');
     }
 }

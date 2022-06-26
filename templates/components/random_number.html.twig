@@ -1,0 +1,31 @@
+<div {{ attributes }}>
+    <label>
+        <input
+            type="number"
+            value="{{ min }}"
+            name="min"
+            data-action="live#update"
+        >
+    </label>
+
+    <label>
+        <input
+            type="number"
+            value="{{ max }}"
+            name="max"
+            data-action="change->live#update"
+        >
+    </label>
+
+    Generating a number between {{ min }} and {{ max }}
+    <strong>{{ this.randomNumber }}</strong>
+
+    <button
+        data-action="live#action"
+        data-action-name="resetMinMax"
+    >Reset Min/Max</button>
+
+    <button
+        data-action="live#$render"
+    >Generate a new number!</button>
+</div>
