@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Components;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -24,7 +26,7 @@ class AlertComponent
     #[ExposeInTemplate('dismissible ')]
     public function canBeDismissed(): bool // available as `{{ dismissible  }}` in the template
     {
-        return $this->type === 'success';
+        return 'success' === $this->type;
     }
 
     #[PreMount]
