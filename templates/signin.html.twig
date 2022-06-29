@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% block title %}Welcome!{% endblock %}</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+  <!-- https://fonts.google.com/icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+
+  {% block stylesheets %}
+    {{ encore_entry_link_tags('login') }}
+  {% endblock %}
+
+</head>
+<body class="text-center img" style='background-image: url({{ asset('build/images/fullscreen-lyon-night.avif') }})'>
+<!-- Main Content-->
+<main class="form-signin">
+  {% block body %}{% endblock %}
+</main>
+{% block javascripts %}
+  {{ encore_entry_script_tags('login') }}
+{% endblock %}
+</body>
+</html>
