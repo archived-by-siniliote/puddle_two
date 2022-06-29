@@ -1,0 +1,10 @@
+<li class="clearfix">
+  <div class="message-data {{ this.isOwner ?: 'text-end' }}">
+    <div class="native-tooltip">
+      <span class="message-date-time">{{ this.datetime | time_diff }}</span>
+      <small class="px-3 native-tooltiptext native-tooltip-left"> {{ this.datetime | date('d/m/y h:m') }} </small>
+    </div>
+    <span class="author">{{ this.getUsername }}</span>
+  </div>
+  <div class="message {{ this.isOwner ? 'my-message' : 'other-message float-end' }} ">{{ this.getContent }}</div>
+</li>

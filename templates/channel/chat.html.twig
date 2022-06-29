@@ -45,32 +45,13 @@
             <div class="chat-history">
               <ul class="m-b-0">
                 {% for message in messages %}
-                  {% if app.user == message.author %}
-                    <li class="clearfix">
-                      <div class="message-data text-end">
-                        <span class="message-data-time">10:10 AM, Today</span>
-                        <span class="author">{{ message.author.username }}</span>
-                      </div>
-                      <div class="message other-message float-end">{{ message.content }}</div>
-                    </li>
-                  {% else %}
-                    <li class="clearfix">
-                      <div class="message-data">
-                        <span class="message-data-time">10:15 AM, Today</span>
-                        <span class="author">{{ message.author.username }}</span>
-                      </div>
-                      <div class="message my-message">{{ message.content }}</div>
-                    </li>
-                  {% endif %}
+                    {{ component('message', {
+                      author: message.author,
+                      message: message
+                    }) }}
                 {% endfor %}
                 <template {{ stimulus_target('send-message', 'template') }}>
-                  <li class="clearfix">
-                    <div class="message-data">
-                      <span class="message-data-time">10:15 AM, Today</span>
-                      <span class="author"></span>
-                    </div>
-                    <div class="message my-message"></div>
-                  </li>
+                  {{ component('message') }}
                 </template>
               </ul>
             </div>

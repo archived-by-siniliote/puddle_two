@@ -26,8 +26,7 @@ class MessageController extends AbstractController
         SerializerInterface $serializer,
         EntityManagerInterface $em,
         HubInterface $hub
-    ): JsonResponse
-    {
+    ): JsonResponse {
         $data = json_decode($request->getContent(), true);
         if (empty($content = $data['content'])) {
             throw new AccessDeniedHttpException('No data sent');
