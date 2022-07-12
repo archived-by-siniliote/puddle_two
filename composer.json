@@ -12,7 +12,9 @@
         "doctrine/annotations": "^1.13",
         "doctrine/doctrine-bundle": "^2.6",
         "doctrine/doctrine-migrations-bundle": "^3.2",
+        "doctrine/mongodb-odm-bundle": "^4.5",
         "doctrine/orm": "^2.12",
+        "mongodb/mongodb": "^1.12",
         "sensio/framework-extra-bundle": "^6.2",
         "siniliote-twig/date-extra": "^3.4",
         "stof/doctrine-extensions-bundle": "^1.7",
@@ -88,7 +90,7 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": false,
+            "allow-contrib": "true",
             "require": "6.1.*",
             "docker": true
         }

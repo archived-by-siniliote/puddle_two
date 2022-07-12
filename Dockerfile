@@ -21,7 +21,7 @@ ENTRYPOINT ["docker-entrypoint"]
 # https://github.com/webpack/webpack/issues/14532#issuecomment-947012063
 ENV NODE_OPTIONS=--openssl-legacy-provider
 
-CMD ["yarn", "dev"]
+CMD ["yarn", "dev-server"]
 
 COPY . .
 
@@ -85,6 +85,36 @@ COPY docker/php/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 RUN chmod +x /usr/local/bin/docker-entrypoint
 
 VOLUME /var/run/php
+
+###> Database & PDO Connection ###
+RUN set -eux; \
+	apk add --no-cache --virtual .build-deps \
+		$PHPIZE_DEPS \
+		postgresql-dev \
+	; \
+	\
+	docker-php-ext-install -j$(nproc) \
+		pdo \
+		pdo_pgsql \
+	; \
+	pecl install \
+	   	mongodb \
+	; \
+	pecl clear-cache; \
+	docker-php-ext-enable \
+	    mongodb \
+    ; \
+	\
+    runDeps="$( \
+		scanelf --needed --nobanner --format '%n#p' --recursive /usr/local/lib/php/extensions \
+			| tr ',' '\n' \
+			| sort -u \
+			| awk 'system("[ -e /usr/local/lib/" $1 " ]") == 0 { next } { print "so:" $1 }' \
+	)"; \
+	apk add --no-cache --virtual .phpexts-rundeps $runDeps; \
+	\
+	apk del .build-deps
+###< Database & PDO Connection ###
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 

@@ -2,3 +2,5 @@
 # See the official DoctrineExtensions documentation for more details: https://github.com/doctrine-extensions/DoctrineExtensions/tree/main/doc
 stof_doctrine_extensions:
     default_locale: en_US
+#    class:
+#        loggable: ~

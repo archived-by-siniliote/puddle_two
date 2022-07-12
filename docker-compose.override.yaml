@@ -40,6 +40,16 @@ services:
         ADMINER_PLUGINS: tables-filter tinymce
         ADMINER_DESIGN: lucas-sandery
 
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD:  ${MONGO_PASSWORD:-ChangeMe}
+      ME_CONFIG_MONGODB_URL: mongodb://root:${MONGO_PASSWORD:-ChangeMe}@mongo:27017/
+
   node:
     container_name: node
     build:
