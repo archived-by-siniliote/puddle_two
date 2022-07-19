@@ -4,7 +4,7 @@ namespace App\Query;
 
 use App\Common\CQRS\Query;
 
-class ListPostQuery implements Query
+class ListPost implements Query
 {
 
 }

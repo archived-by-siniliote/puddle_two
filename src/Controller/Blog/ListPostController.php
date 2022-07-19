@@ -3,7 +3,7 @@
 namespace App\Controller\Blog;
 
 use App\Common\CQRS\QueryBus;
-use App\Query\ListPostQuery;
+use App\Query\ListPost;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,7 +27,7 @@ class ListPostController extends AbstractController
     }
 
     private function getListPost(): array{
-        return $this->queryBus->handle(new ListPostQuery);
+        return $this->queryBus->handle(new ListPost);
     }
 
 }

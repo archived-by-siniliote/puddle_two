@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e
 
-exec docker-php-entrypoint "$@"
+exec docker-entrypoint "$@"
