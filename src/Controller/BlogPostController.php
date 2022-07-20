@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BlogPostController extends AbstractController
 {
-    #[Route('/post/{id}', name: 'blog_post')]
+    #[Route('/post/{slug}', name: 'blog_post')]
     public function __invoke(Post $post): Response
     {
         return $this->render('blog_post/index.html.twig', [

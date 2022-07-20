@@ -10,7 +10,7 @@ class PostFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        PostFactory::createMany(5);
+        PostFactory::createMany(15);
 
         $manager->flush();
     }

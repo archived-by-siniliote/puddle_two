@@ -37,8 +37,8 @@ final class PostFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'title' => self::faker()->word(3),
-            'body' => self::faker()->text()
+            'title' => self::faker()->sentence(3),
+            'body' => self::faker()->paragraph(15)
         ];
     }
 
