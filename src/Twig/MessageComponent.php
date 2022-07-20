@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Components;
+namespace App\Twig;
 
 use App\Entity\Message;
 use App\Entity\User;
