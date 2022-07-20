@@ -1,0 +1,23 @@
+<div {{ attributes }}>
+  <label>
+    <input
+      type="text"
+      data-model="debounce(300)|query"
+      value="{{ query }}"
+      placeholder="Results update as you type..."
+      class="form-control"
+    >
+  </label>
+
+  {% if computed.posts|length > 0 %}
+    <div data-loading="delay|addClass(opacity-50)" class="mt-3 row">
+      {% for post in computed.posts %}
+        {{ include('main/_post_in_list.html.twig') }}
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="alert alert-primary" role="alert">
+      Ah! No post found matching "{{ query }}"
+    </div>
+  {% endif %}
+</div>

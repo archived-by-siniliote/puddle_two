@@ -1,0 +1,20 @@
+<!-- Post preview-->
+<div class="post-preview">
+  <a href="{{ path('blog_post', {id: post.id}) }}">
+    <h2 class="post-title">{{ post.title }}</h2>
+    {% if post.subtitle is defined %}
+      <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+    {% endif %}
+  </a>
+  <p class="post-meta">
+    Posted by
+    {% if post.author is defined %}
+      <a href="#!">{{ post.author }}</a>
+    {% else %}
+      <a href="#!">Anonymous</a>
+    {% endif %}
+    on {{ post.createdAt | date | format("M J, A") }}
+  </p>
+</div>
+<!-- Divider-->
+<hr class="my-4" />

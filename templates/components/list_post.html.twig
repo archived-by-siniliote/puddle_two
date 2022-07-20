@@ -1,0 +1,9 @@
+<div {{ attributes }}>
+  {% if computed.posts|length > 0 %}
+    <div data-loading="addClass(opacity-50)">
+      {% for post in computed.posts %}
+        {{ include('main/_post_in_list.html.twig') }}
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>

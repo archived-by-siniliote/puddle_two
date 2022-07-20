@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\BlogPostRepository;
+use App\Repository\PostRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: BlogPostRepository::class)]
-class BlogPost
+#[ORM\Entity(repositoryClass: PostRepository::class)]
+#[ORM\Table(name: '`post`')]
+#[ORM\HasLifecycleCallbacks]
+class Post
 {
-
     use EntityIdTrait;
     use TimestampableTrait;
 
