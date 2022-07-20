@@ -42,6 +42,17 @@ final class PostFactory extends ModelFactory
         ];
     }
 
+    public function published(): self
+    {
+        // call setPublishedAt() and pass a random DateTime
+        return $this->addState(['published_at' => \DateTimeImmutable::createFromMutable(self::faker()->datetime())]);
+    }
+
+    public function unpublished(): self
+    {
+        return $this->addState(['published_at' => null]);
+    }
+
     protected function initialize(): self
     {
         // see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#initialization

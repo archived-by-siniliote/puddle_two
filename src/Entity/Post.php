@@ -31,6 +31,12 @@ class Post
     #[ORM\OrderBy(['name' => 'ASC'])]
     private Collection $tags;
 
+    #[ORM\ManyToOne(targetEntity: User::class)]
+    private ?User $author = null;
+
+    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
+    private ?\DateTimeImmutable $publishedAt  = null;
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
@@ -85,6 +91,30 @@ class Post
     public function removeTag(Tag $tag): self
     {
         $this->tags->removeElement($tag);
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    public function getPublishedAt(): ?\DateTimeImmutable
+    {
+        return $this->publishedAt;
+    }
+
+    public function setPublishedAt(?\DateTimeImmutable $publishedAt): self
+    {
+        $this->publishedAt = $publishedAt;
 
         return $this;
     }
