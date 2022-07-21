@@ -16,12 +16,15 @@ class ListPostComponent
     #[LiveProp]
     public int $max = 10;
 
+    #[LiveProp]
+    public bool $isPublished = true;
+
     public function __construct(private readonly QueryBus $queryBus)
     {
     }
 
     public function getPosts(): array
     {
-        return $this->queryBus->ask(new ListPost($this->max));
+        return $this->queryBus->ask(new ListPost($this->max, $this->isPublished));
     }
 }

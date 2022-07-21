@@ -17,7 +17,7 @@ class PostFixtures extends Fixture
 
         PostFactory::new()
             ->published()
-            ->many(5) // create 15 posts published
+            ->many(15) // create 15 posts published
             ->create($this->randomAttributes())
         ;
 

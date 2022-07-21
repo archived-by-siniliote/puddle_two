@@ -11,5 +11,7 @@ class ListPost implements Query, SyncMessageInterface
     public function __construct(
         #[Assert\Positive]
         public readonly int $limit = 10,
+        #[Assert\Type('bool')]
+        public readonly bool $onlyPublished = true,
     ){}
 }

@@ -9,7 +9,7 @@
   <p class="post-meta">
     Posted by
     {% if post.author is defined %}
-      <a href="#!">{{ post.author }}</a>
+      <a href="#!">{{ post.author.username }}</a>
     {% else %}
       <a href="#!">Anonymous</a>
     {% endif %}

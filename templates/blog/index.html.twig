@@ -6,8 +6,13 @@
 <div class="container px-4 px-lg-5">
   <div class="row gx-4 gx-lg-5 justify-content-center">
     <div class="col-md-10 col-lg-8 col-xl-7">
-      <h2>Last 5 posts</h2>
-      {{ component('list_post', {max: 5}) }}
+      {% if query is not null %}
+        <h2>Search posts</h2>
+        {{ component('post_search', {query: query}) }}
+      {% else %}
+        <h2>Last 5 posts</h2>
+        {{ component('list_post', {max: 5, isPublished: true}) }}
+      {% endif %}
     </div>
   </div>
 </div>
