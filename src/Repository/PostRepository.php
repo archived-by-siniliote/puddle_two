@@ -2,28 +2,28 @@
 
 namespace App\Repository;
 
-use App\Entity\Post;
+use App\Entity\BlogPost;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\Persistence\ManagerRegistry;
 use function Symfony\Component\String\u;
 
 /**
- * @extends ServiceEntityRepository<Post>
+ * @extends ServiceEntityRepository<BlogPost>
  *
- * @method Post|null find($id, $lockMode = null, $lockVersion = null)
- * @method Post|null findOneBy(array $criteria, array $orderBy = null)
- * @method Post[]    findAll()
- * @method Post[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method BlogPost|null find($id, $lockMode = null, $lockVersion = null)
+ * @method BlogPost|null findOneBy(array $criteria, array $orderBy = null)
+ * @method BlogPost[]    findAll()
+ * @method BlogPost[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class PostRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Post::class);
+        parent::__construct($registry, BlogPost::class);
     }
 
-    public function add(Post $entity, bool $flush = false): void
+    public function add(BlogPost $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -32,7 +32,7 @@ class PostRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Post $entity, bool $flush = false): void
+    public function remove(BlogPost $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 

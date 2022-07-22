@@ -4,7 +4,7 @@ namespace App\Domain\Handler;
 
 use App\Common\CQRS\CommandHandler;
 use App\Domain\Command\AddPost;
-use App\Entity\Post;
+use App\Entity\BlogPost;
 use App\Repository\PostRepository;
 use Symfony\Component\Mercure\HubInterface;
 use Symfony\Component\Mercure\Update;
@@ -18,7 +18,7 @@ class AddPostHandler implements CommandHandler
     }
 
     public function __invoke(AddPost $command){
-        $post = (new Post)
+        $post = (new BlogPost)
             ->setTitle($command->title)
             ->setBody($command->body);
 

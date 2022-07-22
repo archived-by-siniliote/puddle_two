@@ -21,9 +21,9 @@ framework:
 
         routing:
             # Route your messages to the transports
-            'App\Message\AsyncMessageInterface': async
+            'App\Message\AsyncMessageInterface': sync
             'App\Message\SyncMessageInterface': sync
-            'App\Common\CQRS\Command': async
+            'App\Common\CQRS\Command': sync
             'App\Common\CQRS\Query': sync
 
 when@test:

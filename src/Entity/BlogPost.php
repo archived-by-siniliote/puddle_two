@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\EnumType\PostPlaceType;
 use App\Repository\PostRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -9,9 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
-#[ORM\Table(name: '`post`')]
+#[ORM\Table(name: '`blog_post`')]
 #[ORM\HasLifecycleCallbacks]
-class Post
+class BlogPost
 {
     use EntityIdTrait;
     use TimestampableTrait;
@@ -27,7 +28,7 @@ class Post
     private string $body;
 
     #[ORM\ManyToMany(targetEntity: Tag::class, cascade: ['persist'])]
-    #[ORM\JoinTable(name: 'post_tag')]
+    #[ORM\JoinTable(name: 'blog_post_tag')]
     #[ORM\OrderBy(['name' => 'ASC'])]
     private Collection $tags;
 
@@ -36,6 +37,9 @@ class Post
 
     #[ORM\Column(type: 'datetime_immutable', nullable: true)]
     private ?\DateTimeImmutable $publishedAt  = null;
+
+    #[ORM\Column(type: "json")]
+    private array $currentPlace;
 
     public function __construct()
     {
@@ -117,5 +121,14 @@ class Post
         $this->publishedAt = $publishedAt;
 
         return $this;
+    }
+
+    public function getCurrentPlace(): array
+    {
+        return $this->currentPlace;
+    }
+
+    public function setCurrentPlace(array $currentPlace){
+        $this->currentPlace = $currentPlace;
     }
 }

@@ -1,0 +1,17 @@
+<div {{ attributes }}>
+  <h3>Actions on Blog Post</h3>
+  <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+    <form>
+    {# Or loop through the enabled transitions #}
+    {% for transition in workflow_transitions(post) %}
+      <button
+        type="button" class="btn btn-primary"
+        data-action="live#action"
+        data-action-name="{{ transition.name|u.camel }}()"
+      >{{ transition.name }}</button>
+    {% else %}
+      No actions available.
+    {% endfor %}
+    </form>
+  </div>
+</div>
