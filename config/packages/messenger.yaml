@@ -20,8 +20,10 @@ framework:
             sync: 'sync://'
 
         routing:
+            Symfony\Component\Mailer\Messenger\SendEmailMessage: async
+            
             # Route your messages to the transports
-            'App\Message\AsyncMessageInterface': sync
+            'App\Message\AsyncMessageInterface': async
             'App\Message\SyncMessageInterface': sync
             'App\Common\CQRS\Command': sync
             'App\Common\CQRS\Query': sync

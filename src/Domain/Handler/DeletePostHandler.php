@@ -3,31 +3,32 @@
 namespace App\Domain\Handler;
 
 use App\Common\CQRS\CommandHandler;
-use App\Domain\Command\AddPost;
+use App\Domain\Command\DeletePost;
 use App\Entity\BlogPost;
 use App\Repository\PostRepository;
 use Symfony\Component\Mercure\HubInterface;
 use Symfony\Component\Mercure\Update;
 
-class AddPostHandler implements CommandHandler
+class DeletePostHandler implements CommandHandler
 {
-
-
     public function __construct(private readonly PostRepository $postRepository, private readonly HubInterface $hub)
     {
     }
 
-    public function __invoke(AddPost $command){
-        $post = (new BlogPost)
-            ->setTitle($command->title)
-            ->setBody($command->body);
+    public function __invoke(DeletePost $command){
 
-        $this->postRepository->add($post);
+        $post = $this->postRepository->find($command->id);
 
-        $this->publishProgress($post->getId(), 'ADD_POST', $post->getTitle());
+        if($post){
+            $this->postRepository->remove($post);
+            $this->deleteProgress($post->getId(), 'DELETE_POST', $post->getTitle());
+        } else {
+            $this->deleteProgress($command->id, 'NOT_EXIST_POST');
+        }
+
     }
 
-    private function publishProgress(string $id, string $type, $data = null)
+    private function deleteProgress(string $id, string $type, $data = null)
     {
         $update = new Update(
             "post:$id",

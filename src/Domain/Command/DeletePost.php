@@ -3,16 +3,13 @@
 namespace App\Domain\Command;
 
 use App\Common\CQRS\Command;
-use App\Message\AsyncMessageInterface;
+use Symfony\Component\Uid\Ulid;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class AddPost implements Command
+class DeletePost implements Command
 {
     public function __construct(
         #[Assert\NotBlank]
-        public readonly string $title,
-
-        #[Assert\NotBlank]
-        public readonly string $body,
+        public readonly Ulid $id,
     ){}
 }

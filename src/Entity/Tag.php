@@ -17,6 +17,11 @@ class Tag
     #[ORM\Column(type: 'string', unique: true)]
     private string $name;
 
+    public function __toString():string
+    {
+        return $this->name;
+    }
+
     public function getId(): int
     {
         return $this->id;

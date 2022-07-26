@@ -41,6 +41,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->messages = new ArrayCollection();
     }
 
+    public function __toString(): string
+    {
+        return $this->username . ' (' . $this->email . ')';
+    }
+
     public function getEmail(): ?string
     {
         return $this->email;

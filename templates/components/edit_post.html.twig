@@ -1,0 +1,13 @@
+<div {{ attributes }}>
+  {{ form_start(form) }}
+    {{ form_row(form.title) }}
+
+    {{ component('markdown_textarea', {
+      name: 'post[body]',
+      value: post.body,
+      formView: form.body
+    }) }}
+
+    <button data-action="live#action" data-action-name="save">Save</button>
+  {{ form_rest(form) }}
+</div>

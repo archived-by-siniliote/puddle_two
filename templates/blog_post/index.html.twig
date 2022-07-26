@@ -34,9 +34,23 @@
         </section>
         <footer>
           <!-- Post Tags-->
-          {% for tag in post.tags %}
-            <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{ tag.name }}</a>
-          {% endfor %}
+          <div class="row">
+            <div class="col-12">
+              {% for tag in post.tags %}
+                <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{ tag.name }}</a>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="row py-4">
+            <div class="col-12">
+              <div class="bg-light shadow border rounded-3 p-4">
+                <h3 class="font-weight-light">
+                  Add your own feedback
+                </h3>
+                {{ form(comment_form) }}
+              </div>
+            </div>
+          </div>
         </footer>
       </article>
     </div>

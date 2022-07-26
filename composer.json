@@ -13,6 +13,7 @@
         "doctrine/doctrine-bundle": "^2.6",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.12",
+        "league/commonmark": "^2.3",
         "sensio/framework-extra-bundle": "^6.2",
         "siniliote-twig/date-extra": "^3.4",
         "stof/doctrine-extensions-bundle": "^1.7",
@@ -20,7 +21,9 @@
         "symfony/doctrine-messenger": "6.1.*",
         "symfony/dotenv": "6.1.*",
         "symfony/flex": "^2",
+        "symfony/form": "6.1.*",
         "symfony/framework-bundle": "6.1.*",
+        "symfony/mailer": "6.1.*",
         "symfony/mercure-bundle": "^0.3.5",
         "symfony/messenger": "6.1.*",
         "symfony/proxy-manager-bridge": "6.1.*",
@@ -35,7 +38,10 @@
         "symfony/webpack-encore-bundle": "^1.15",
         "symfony/workflow": "6.1.*",
         "symfony/yaml": "6.1.*",
+        "twig/cssinliner-extra": "^3.4",
         "twig/extra-bundle": "3.x-dev",
+        "twig/inky-extra": "^3.4",
+        "twig/markdown-extra": "^3.4",
         "twig/string-extra": "^3.4"
     },
     "config": {

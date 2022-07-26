@@ -1,5 +1,6 @@
 <div {{ attributes }}>
   <h3>Actions on Blog Post</h3>
+  <a href="{{ path('blog_post_edit', {slug: post.slug}) }}">Edition</a>
   <div class="btn-group" role="group" aria-label="Basic mixed styles example">
     <form>
     {# Or loop through the enabled transitions #}

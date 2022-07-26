@@ -35,7 +35,7 @@ RUN apk add --no-cache \
 		file \
 		gettext \
 		git \
-	;
+    ;
 
 ARG APCU_VERSION=5.1.21
 RUN set -eux; \
@@ -45,13 +45,15 @@ RUN set -eux; \
 		icu-dev \
 		libzip-dev \
 		zlib-dev \
+    	libxslt-dev \
 	; \
 	\
 	docker-php-ext-configure zip; \
 	docker-php-ext-install -j$(nproc) \
 		intl \
 		zip \
-	; \
+    	xsl \
+    ; \
 	pecl install \
 		apcu-${APCU_VERSION} \
     	redis \

@@ -1,0 +1,11 @@
+<div {{ attributes }} class="mb-3">
+    {{ form_row(formView) }}
+    <textarea
+      name="{{ name }}"
+      data-model="value"
+    >{{ value }}</textarea>
+
+  <div class="markdown-preview">
+    {{ value|markdown_to_html }}
+  </div>
+</div>

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  {% if post.id is defined %}
+    <h1>Edit Post</h1>
+  {% else %}
+    <h1>Create new Post</h1>
+  {% endif %}
+
+  {{ component('edit_post', {
+    post: post.id ? post : null
+  }) }}
+{% endblock %}

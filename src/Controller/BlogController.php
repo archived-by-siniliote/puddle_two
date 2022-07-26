@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BlogController extends AbstractController
 {
-    #[Route('/blog', name: 'blog_index')]
+    #[Route('/blog', name: 'blog_index', methods: Request::METHOD_GET)]
     #[Route('/search', name: 'blog_search', methods: Request::METHOD_GET)]
     public function __invoke(Request $request): Response
     {
