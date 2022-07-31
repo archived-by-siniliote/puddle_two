@@ -1,0 +1,26 @@
+{% extends '@WebProfiler/Profiler/layout.html.twig' %}
+
+{% block toolbar %}
+  {% set icon %}
+    {{ source('@WebProfiler/Icon/http-client.svg') }}
+    <span class="sf-toolbar-value">Tools</span>
+  {% endset %}
+
+  {% set text %}
+    <div class="sf-toolbar-info-piece">
+      <b>Database</b>
+      <span><a href="http://localhost:8080/?pgsql=database&username=symfony&db=app&ns=public">Link</a></span>
+    </div>
+
+    <div class="sf-toolbar-info-piece">
+      <b>MailCatcher</b>
+      <span><a href="http://localhost:1080/">Link</a></span>
+    </div>
+
+    <div class="sf-toolbar-info-piece">
+      <b>RedisCommander</b>
+      <span><a href="http://localhost:8081/">Link</a></span>
+    </div>
+  {% endset %}
+    {{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { link: false, additional_classes: 'sf-toolbar-block-right' }) }}
+{% endblock %}
