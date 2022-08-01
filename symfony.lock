@@ -395,6 +395,15 @@
             "config/packages/mercure.yaml"
         ]
     },
+    "symfony/mercure-notifier": {
+        "version": "6.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "5.3",
+            "ref": "ae4620ee823a67e41f65aabec525fa52c79a8b09"
+        }
+    },
     "symfony/messenger": {
         "version": "6.1",
         "recipe": {
@@ -405,6 +414,18 @@
         },
         "files": [
             "config/packages/messenger.yaml"
+        ]
+    },
+    "symfony/notifier": {
+        "version": "6.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "5.0",
+            "ref": "c31585e252b32fe0e1f30b1f256af553f4a06eb9"
+        },
+        "files": [
+            "config/packages/notifier.yaml"
         ]
     },
     "symfony/password-hasher": {
@@ -541,6 +562,9 @@
         "files": [
             "config/routes/ux_live_component.yaml"
         ]
+    },
+    "symfony/ux-notify": {
+        "version": "v2.3.0"
     },
     "symfony/ux-twig-component": {
         "version": "v2.2.0"

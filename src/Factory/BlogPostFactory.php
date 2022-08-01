@@ -40,7 +40,7 @@ final class BlogPostFactory extends ModelFactory
         return [
             'title' => self::faker()->sentence(3),
             'body' => self::faker()->paragraph(15),
-            'current_place'=> ['DRAFT']
+            'current_place'=> ['Draft' => 'Draft']
         ];
     }
 

@@ -20,7 +20,7 @@ class DeletePostHandler implements CommandHandler
         $post = $this->postRepository->find($command->id);
 
         if($post){
-            $this->postRepository->remove($post);
+            $this->postRepository->remove($post, true);
             $this->deleteProgress($post->getId(), 'DELETE_POST', $post->getTitle());
         } else {
             $this->deleteProgress($command->id, 'NOT_EXIST_POST');
